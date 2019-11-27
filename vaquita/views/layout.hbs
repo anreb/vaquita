@@ -16,14 +16,38 @@
 </head>
 
 <body>
+
   <div id="nav-container">
     <a class="navbar-brand" href="/">
       <img id="logo" src="../images/logo.png">
     </a>
-    <div>
-      <a class="navbar-menu" href="/">
-        <img id="icon" src="../images/icon_menu.png">
-      </a>
+    <div class="collapsed-menu">
+      <li class="dropdown">
+
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><img id="icon-menu" src="/images/icon_menu.png">
+          <span class="navbar-toggler-icon"></span></a>
+        <ul class="dropdown-menu">
+          {{#if logged}}
+          <li class="nav-item">
+            <a class="nav-link active" id="links-layout" href="/promos">Your promos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="links-layout" href="/stores">Edit stores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="links-layout" href="/auth/logout">Logout</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" id="links-layout" href="/auth/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="links-layout" href="/auth/login">Login</a>
+          </li>
+
+          {{/if}}
+        </ul>
+      </li>
     </div>
     <ul class="nav justify-content-end">
       {{#if logged}}
@@ -46,7 +70,7 @@
       {{/if}}
     </ul>
   </div>
-
+  -->
 
   {{{body}}}
 
@@ -64,6 +88,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+
   <script src="/javascripts/script.js"></script>
 </body>
 
