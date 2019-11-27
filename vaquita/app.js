@@ -14,7 +14,10 @@ const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 
 mongoose
-	.connect('mongodb://localhost/vaquita', { useNewUrlParser: true, useUnifiedTopology: true })
+	.connect('mongodb://localhost/vaquita', {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	.then((x) => {
 		console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
 	})
@@ -30,7 +33,9 @@ const app = express();
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -58,7 +63,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 });
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Vaquita';
 
 // Enable authentication using session + passport
 app.use(
@@ -66,7 +71,9 @@ app.use(
 		secret: 'irongenerator',
 		resave: true,
 		saveUninitialized: true,
-		store: new MongoStore({ mongooseConnection: mongoose.connection })
+		store: new MongoStore({
+			mongooseConnection: mongoose.connection
+		})
 	})
 );
 app.use(flash());

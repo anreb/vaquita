@@ -1,46 +1,56 @@
-<form action="/promos/new" method="POST" enctype="multipart/form-data" id="form-container">
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name">
+<div id="h-container">
+  <h2>Add a promotion</h2>
+</div>
 
-  <br><br>
-
-  <label for="description">Description</label>
-  <input id="description" type="text" name="description">
-
-  <br><br>
-
-  <label for="expiration">Expiration</label>
-  <input id="expiration" type="text" name="expiration">
-
-   <br><br>
-
-   <label for="price">Price</label>
-  <input id="price" type="number" name="price">
-
-   <br><br>
-
-   <label for="photo">Profile Picture</label>
-   <input type="file" name="photo" id="photo" accept="image/*">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Create promo</button>
-</form>
-
-{{#each promos as |promo|}}
-    <div>
-        <img src={{promo.imgUrl}}>
-        <h2>{{promo.name}}</h2>
-        <h3>{{promo.description}}</h3>
-        <h3>{{promo.expiration}}</h3>
-        <h3>{{promo.price}}</h3>
-        <h3>{{promo.author.name}}</h3>
-        <form action="/promos/{{promo._id}}/delete" method="POST">
-            <button type="submit">Delete</button>
-        </form>
+<div id="forms-container">
+  <form action="/promos/new" method="POST" style="width: 50%" enctype="multipart/form-data" id="form-container">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" class="form-control" type="text" name="name">
     </div>
-{{/each}}
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input id="description" class="form-control" type="text" name="description">
+    </div>
+    <div class="form-group">
+      <label for="expiration">Expiration</label>
+      <input id="expiration" class="form-control" type="text" name="expiration">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" class="form-control" type="number" name="price">
+    </div>
+    <div class="form-group">
+      <label for="photo">Profile Picture</label>
+      <input type="file" class="form-control" name="photo" id="photo" accept="image/*">
+    </div>
+    {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <br><br>
+
+    <button class="btn btn-info">Create promo</button>
+  </form>
+</div>
+
+<div id="promos-container">
+
+  <h2>Your promotios</h2>
+  {{#each promos as |promo|}}
+  <div class="card" style="width: 50%">
+    <img src={{promo.imgUrl}}>
+    <div class="card-body">
+      <p class="card-text"><b>Name: </b>{{promo.name}}</p>
+      <p class="card-text"><b>Description: </b>{{promo.description}}</p>
+      <p class="card-text"><b>Expiration: </b>{{promo.expiration}}</p>
+      <p class="card-text"><b>Price: </b>{{promo.price}}</p>
+      <p class="card-text"><b>Author: </b>{{promo.author.name}}</p>
+      <form action="/promos/{{promo._id}}/delete" method="POST">
+        <button class="btn btn-info" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>

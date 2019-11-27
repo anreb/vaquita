@@ -1,25 +1,28 @@
+<div id="h-container">
+  <h2>Login</h2>
+</div>
 
-<h2>Login</h2>
+<div id="forms-container">
+  <form action="/auth/login" method="POST" style="width: 50%" id="form-container">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" class="form-control" type="text" name="email" placeholder="palomino@gmail.com">
+    </div>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="email">Email</label>
-  <input id="email" type="text" name="email" placeholder="palomino@gmail.com">
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" class="form-control" type="password" name="password" placeholder="Your password">
+    </div>
 
-  <br><br>
+    {{#if message }}
+    <div class="error-message" style="color: red">{{ message }}</div>
+    {{/if}}
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+    <button class="btn btn-info">Login</button>
 
-  <br><br>
-
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+    <small class="form-text text-muted">
+      Don't have an account yet?
+      <a id="forms-links" href="/auth/signup">Signup</a>
+    </small>
+  </form>
+</div>

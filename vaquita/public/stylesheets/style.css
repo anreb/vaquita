@@ -1,8 +1,107 @@
+/***  rgba(2,4,168, 0.8)
+#07c8c1
+rgba(7, 200, 193, 0.8);
+***/
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  font-family: 'Varela Round'; }
 
 a {
-  color: #00B7FF; }
+  color: white; }
+
+#nav-container {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  background-color: #0204a8; }
+
+#logo {
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 150px;
+  height: 70px; }
+
+#icon {
+  display: none; }
+
+ul {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  padding: 20px 0px; }
+
+h2 {
+  color: #07c8c1;
+  text-align: center;
+  font-size: 2rem; }
+
+#links-layout:hover {
+  color: #07c8c1; }
+
+#forms-links {
+  color: #0204a8; }
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #0204a8;
+  font-size: 1.01rem;
+  color: white; }
+
+#footer-container {
+  width: 100%;
+  height: 100%; }
+
+#h-container {
+  position: relative;
+  top: 150px; }
+
+#forms-container {
+  position: relative;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0px; }
+
+.card {
+  display: inline; }
+
+#promos-container {
+  align-content: center;
+  text-align: center; }
+
+.card img {
+  width: 300px;
+  height: 300px; }
+
+/*****MOBILE FIRST*****/
+/*
+@media (max-width: 677px) {
+
+ 
+
+  #icon {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 150px;
+    height: 70px;
+
+  }
+}*/
 
 /*# sourceMappingURL=style.css.map */
