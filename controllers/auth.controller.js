@@ -56,7 +56,7 @@ exports.signUpProcess = (req, res) => {
 					subject: 'Verificar cuenta',
 					text: `Haz click en codigo de verifacion para activar cuenta`,
 					html: `
-			  		<a href="http://localhost:3000/auth/confirm/${token}"> Codigo de verificacion: ${token} </a>`
+			  		<a href="${req.headers.origin}/auth/confirm/${token}"> Codigo de verificacion: ${token} </a>`
 				});
 				req.app.locals.confirmed = false;
 				res.redirect('/auth/login');
