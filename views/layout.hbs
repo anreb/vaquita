@@ -6,22 +6,46 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-  <nav>
-    <a href="/">Promos Feed</a>
-    <a href="/vaquita">Vaquita</a>
-    {{#if logged}}
-      <a href="/promos">Your promos</a>
-      <a href="/stores">Edit stores</a>
-      <a href="/profile">Profile</a>
-      <a href="/auth/logout">Logout</a>
-      {{else}}
-      <a href="/auth/signup">Signup</a>
-      <a href="/auth/login">Login</a>
-    {{/if}}
-  </nav>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="/vaquita">Vaquita</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/">Promos Feed</a>
+      </li>
+      {{#if logged}}
+        <li class="nav-item">
+          <a href="/promos">Your promos</a>
+        </li>
+        <li class="nav-item">
+          <a href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a href="/stores">Edit stores</a>
+        </li>
+        <li class="nav-item">
+          <a href="/auth/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a href="/auth/signup">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a href="/auth/login">Login</a>
+        </li>
+      {{/if}}  
+    </ul>
+  </div>  
+</nav>
 
   {{{body}}}
 

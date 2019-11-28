@@ -12,6 +12,7 @@ exports.isAuth = (req, res, next) => {
 };
 
 exports.confirmed = (req, res, next) => {
+	console.log(req.app.locals.confirmed);
 	req.app.locals.confirmed ? next() : res.redirect('/auth/login');
 };
 
