@@ -78,11 +78,11 @@ const storeRoutes = require('./routes/stores');
 const profileRoutes = require('./routes/profile');
 const vaquitaRoutes = require('./routes/vaquita');
 const { checkUser, isAuth, isAdmin, checkAdmin } = require('./middlewares');
-app.use('/', checkUser, checkAdmin, index);
+app.use('/', checkUser, checkAdmin, vaquitaRoutes);
+app.use('/feed', index);
 app.use('/auth', authRoutes);
 app.use('/promos', isAuth, checkUser, promoRoutes);
 app.use('/stores', isAuth, checkUser, isAdmin, storeRoutes);
 app.use('/profile', isAuth, checkUser, profileRoutes);
-app.use('/vaquita', vaquitaRoutes);
 
 module.exports = app;

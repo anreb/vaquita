@@ -10,7 +10,7 @@ router.post(
 	'/login',
 	confirmed,
 	passport.authenticate('local', {
-		successRedirect: '/',
+		successRedirect: '/feed',
 		failureRedirect: '/auth/login',
 		failureFlash: true,
 		passReqToCallback: true
