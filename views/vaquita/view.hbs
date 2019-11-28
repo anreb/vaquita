@@ -9,13 +9,15 @@
 </div>
 
 <script>
-    const ids = [];
-    const changedIds = [];
+    let ids = [];
+    let changedIds = [];
     let total;
     function addUsers() {
+        ids = [];
         let users = document.getElementById('persons').value;
         let container = document.getElementById('users');
         total = document.getElementById('total').value;
+        changedIds = [];
         container.innerHTML = '';
         for (let i=0; i< users; i++){
             const input = 
@@ -27,19 +29,32 @@
     }
     
     function calculateOnChange(id) {
-        if(ids.length !== changedIds.length+1) {
+        if(ids.length >= changedIds.length+1) {
             let users = document.getElementById('persons').value;
             let container = document.getElementById('users');
             let changedValue = document.getElementById(id).value;
-            let [changedId] = ids.slice(ids.indexOf(id), ids.indexOf(id)+1);
-            changedIds.push(changedId);
-            total-=changedValue;
-            console.log(ids, changedIds)
-            ids.forEach(el => {
-                if(!changedIds.includes(el)) {
-                    document.getElementById(el).value = total / (ids.length - changedIds.length);
-                }
-            })
+            console.log(changedValue);
+            console.log(typeof id);
+            if(!changedIds.includes(id)) {
+                let [changedId] = ids.slice(ids.indexOf(id), ids.indexOf(id)+1);
+                changedIds.push(changedId);
+                total-=changedValue;
+                ids.forEach(el => {
+                    if(!changedIds.includes(el)) {
+                        document.getElementById(el).value = total / (ids.length - changedIds.length);
+                    }
+                })
+            } else {
+                console.log('reseting')
+                changedIds = [];
+                total = document.getElementById('total').value;
+                calculateOnChange(id);
+            }
+        } else {
+            console.log('reseting')
+            changedIds = [];
+            total = document.getElementById('total').value;
+            calculateOnChange(id);
         }
     }
 </script>

@@ -58,7 +58,6 @@ exports.signUpProcess = (req, res) => {
 					html: `
 			  		<a href="${req.headers.origin}/auth/confirm/${token}"> Codigo de verificacion: ${token} </a>`
 				});
-				req.app.locals.confirmed = false;
 				res.redirect('/auth/login');
 			})
 			.catch((err) => {
@@ -79,7 +78,6 @@ exports.confirmAccount = async (req, res) => {
 			new: true
 		}
 	);
-	req.app.locals.confirmed = true;
 	res.render('auth/login', { confirmed: 'Cuenta verificada! Inicia sesion para continuar...' });
 };
 

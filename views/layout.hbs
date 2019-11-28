@@ -29,9 +29,11 @@
         <li class="nav-item">
           <a href="/profile">Profile</a>
         </li>
-        <li class="nav-item">
-          <a href="/stores">Edit stores</a>
-        </li>
+          {{#if admin}}
+            <li class="nav-item">
+              <a href="/stores">Edit stores</a>
+            </li>
+          {{/if}}
         <li class="nav-item">
           <a href="/auth/logout">Logout</a>
         </li>

@@ -77,12 +77,12 @@ const promoRoutes = require('./routes/promos');
 const storeRoutes = require('./routes/stores');
 const profileRoutes = require('./routes/profile');
 const vaquitaRoutes = require('./routes/vaquita');
-const { checkUser, isAuth } = require('./middlewares');
-app.use('/', checkUser, index);
+const { checkUser, isAuth, isAdmin, checkAdmin } = require('./middlewares');
+app.use('/', checkUser, checkAdmin, index);
 app.use('/auth', authRoutes);
-app.use('/promos', checkUser, isAuth, promoRoutes);
-app.use('/stores', checkUser, isAuth, storeRoutes);
-app.use('/profile', checkUser, isAuth, profileRoutes);
+app.use('/promos', isAuth, checkUser, promoRoutes);
+app.use('/stores', isAuth, checkUser, isAdmin, storeRoutes);
+app.use('/profile', isAuth, checkUser, profileRoutes);
 app.use('/vaquita', vaquitaRoutes);
 
 module.exports = app;

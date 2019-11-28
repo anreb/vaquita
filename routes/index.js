@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { checkUser } = require('../middlewares/index');
+const { isAdmin } = require('../middlewares/index');
 const { feedView, feedSearch } = require('../controllers/index.controller');
 
 /* GET home page */

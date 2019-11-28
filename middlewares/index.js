@@ -1,3 +1,5 @@
+const User = require('../models/User');
+
 exports.checkUser = (req, res, next) => {
 	if (req.isAuthenticated()) {
 		req.app.locals.logged = true;
@@ -12,8 +14,39 @@ exports.isAuth = (req, res, next) => {
 };
 
 exports.confirmed = (req, res, next) => {
-	console.log(req.app.locals.confirmed);
-	req.app.locals.confirmed ? next() : res.redirect('/auth/login');
+	const { email } = req.body;
+	console.log(email);
+	User.find({ email })
+		.then(([ user ]) => {
+			console.log(user);
+			user.status === 'Active' ? next() : res.redirect('/auth/login');
+		})
+		.catch((err) => console.log(err));
+};
+
+exports.checkAdmin = (req, res, next) => {
+	if (req.user) {
+		if (req.user.email === 'anrebdev@gmail.com') {
+			req.app.locals.admin = true;
+			return next();
+		} else {
+			req.app.locals.admin = false;
+			return next();
+		}
+	} else {
+		return next();
+	}
+};
+
+exports.isAdmin = (req, res, next) => {
+	if (req.user.email === 'anrebdev@gmail.com') {
+		console.log('Is admin');
+		req.app.locals.admin = true;
+		return next();
+	} else {
+		req.app.locals.admin = false;
+		res.redirect('/');
+	}
 };
 
 exports.catchErrors = (controller) => (req, res, next) => controller(req, res, next).catch(next);
