@@ -1,0 +1,37 @@
+<form action="/promos/{{promo._id}}/edit" method="POST" enctype="multipart/form-data" id="form-container">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" value="{{promo.name}}">
+
+  <br><br>
+
+  <label for="storeName">Store</label>
+  <input id="storeName" type="text" name="storeName" value="{{promo.store.name}}">
+
+  <br><br>
+
+  <label for="description">Description</label>
+  <input id="description" type="text" name="description" value="{{promo.description}}">
+
+  <br><br>
+
+  <label for="expiration">Expiration</label>
+  <input id="expiration" type="text" name="expiration" value="{{promo.expiration}}">
+
+   <br><br>
+
+   <label for="price">Price</label>
+  <input id="price" type="number" name="price" value="{{promo.price}}">
+
+   <br><br>
+
+   <label for="photo">Promo Image</label>
+   <input type="file" name="photo" id="photo" accept="image/*">
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button type="submit">Edit promo</button>
+</form>

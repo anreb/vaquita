@@ -1,0 +1,21 @@
+<img src={{promo.store.imgUrl}}>
+<h2>{{promo.store.name}}</h2>
+<h3>Store's promotions</h3>
+<br>
+{{#each promos as |promo|}}
+        <div>
+            <img src={{promo.imgUrl}}>
+            <h2>{{promo.name}}</h2>
+            <h3>{{promo.store.name}}</h3>
+            <h3>{{promo.description}}</h3>
+            <h3>{{promo.expiration}}</h3>
+            <h3>{{promo.price}}</h3>
+            <h3>{{promo.author.name}}</h3>
+            <form action="/promos/{{promo._id}}/delete" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+            <form action="/promos/{{promo._id}}/edit" method="GET">
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+{{/each}}

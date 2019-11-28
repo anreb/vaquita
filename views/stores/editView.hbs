@@ -1,0 +1,17 @@
+<form action="/stores/{{store._id}}/edit" method="POST" enctype="multipart/form-data" id="form-container">
+  <label for="storeName">Name</label>
+  <input id="storeName" type="text" name="storeName" value="{{promo.name}}">
+
+  <br><br>
+
+   <label for="photo">Store Image</label>
+   <input type="file" name="photo" id="photo" accept="image/*">
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button type="submit">Edit store</button>
+</form>

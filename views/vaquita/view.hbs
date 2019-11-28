@@ -1,0 +1,46 @@
+<h2>Calcular vaquita</h2>
+<h3>Quien paga: {{user.name}}</h3>
+<label for="total">Total:</label>
+<input id="total" type="number" name="total">
+<label for="persons">Cantidad de personas:</label>
+<input id="persons" type="number" name="total">
+<a href="#" id="addPersons" onclick="addUsers()">Agregar personas</a>
+
+<div id="users">
+</div>
+
+<script>
+    const ids = [];
+    const changedIds = [];
+    let total;
+    function addUsers() {
+        let users = document.getElementById('persons').value;
+        let container = document.getElementById('users');
+        total = document.getElementById('total').value;
+        container.innerHTML = '';
+        for (let i=0; i< users; i++){
+            const input = 
+            `<input id="vaquitaNombre${i+1}" type="text" name="vaquitaNombre" value="Vaquita ${i+1}">
+            <input id="vaquitaTotal${i+1}" type="number" name="vaquitaTotal" value="${total/users}" onchange="calculateOnChange(this.id)"><br>`;
+            container.insertAdjacentHTML('beforeend', input);
+            ids.push(`vaquitaTotal${i+1}`);
+        }
+    }
+    
+    function calculateOnChange(id) {
+        if(ids.length !== changedIds.length+1) {
+            let users = document.getElementById('persons').value;
+            let container = document.getElementById('users');
+            let changedValue = document.getElementById(id).value;
+            let [changedId] = ids.slice(ids.indexOf(id), ids.indexOf(id)+1);
+            changedIds.push(changedId);
+            total-=changedValue;
+            console.log(ids, changedIds)
+            ids.forEach(el => {
+                if(!changedIds.includes(el)) {
+                    document.getElementById(el).value = total / (ids.length - changedIds.length);
+                }
+            })
+        }
+    }
+</script>

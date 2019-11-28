@@ -1,0 +1,18 @@
+<form action="/" method="POST">
+    <label for="search"></label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+</form>
+<h2>Promos</h2>
+
+{{#each promos as |promo|}}
+<div>
+    <img src="{{promo.imgUrl}}">
+    <h2>{{promo.name}}</h2>
+    <h3>{{promo.store.name}}</h3>
+    <h3>{{promo.price}}</h3>
+    <h3>{{promo.description}}</h3>
+    <h3>{{promo.expiration}}</h3>
+    <h3>{{promo.author.name}}</h3>
+</div>
+{{/each}}

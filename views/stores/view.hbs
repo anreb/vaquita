@@ -1,0 +1,33 @@
+<form action="/stores/new" method="POST" enctype="multipart/form-data" id="form-container">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name">
+
+  <br><br>
+
+   <label for="photo">Store image</label>
+   <input type="file" name="photo" id="photo" accept="image/*">
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button>Create store</button>
+</form>
+
+{{#each stores as |store|}}
+    <div>
+        <img src={{store.imgUrl}}>
+        <h2>{{store.name}}</h2>
+        <form action="/stores/{{store._id}}" method="GET">
+            <button type="submit">Store promotions</button>
+        </form>
+        <form action="/stores/{{store._id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/stores/{{store._id}}/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+{{/each}}
