@@ -1,22 +1,22 @@
 <h2>Signup</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
-  <label for="name">Name</label>
+  <label for="name">Nombre: </label>
   <input id="name" type="text" name="name" placeholder="Palomino">
 
   <br><br>
 
-  <label for="lastName">Lastname</label>
+  <label for="lastName">Apellido: </label>
   <input id="lastName" type="text" name="lastName" placeholder="Perez">
 
   <br><br>
 
-  <label for="email">Email</label>
+  <label for="email">Email: </label>
   <input id="email" type="text" name="email" placeholder="palomino_perez@gmail.com">
 
   <br><br>
 
-  <label for="password">Password</label>
+  <label for="password">Contraseña: </label>
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
@@ -25,10 +25,5 @@
 
   <br><br>
 
-  <button>Create account</button>
-
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
+  <button>Registrarse</button>
 </form>

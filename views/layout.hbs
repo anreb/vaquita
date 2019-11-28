@@ -20,26 +20,26 @@
   <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="/feed">Promos Feed</a>
+        <a href="/feed">Promos</a>
       </li>
       {{#if logged}}
         <li class="nav-item">
-          <a href="/promos">Your promos</a>
+          <a href="/promos">Tus promos</a>
         </li>
         <li class="nav-item">
-          <a href="/profile">Profile</a>
+          <a href="/profile">Perfil</a>
         </li>
           {{#if admin}}
             <li class="nav-item">
-              <a href="/stores">Edit stores</a>
+              <a href="/stores">Tiendas</a>
             </li>
           {{/if}}
         <li class="nav-item">
-          <a href="/auth/logout">Logout</a>
+          <a href="/auth/logout">Salir</a>
         </li>
         {{else}}
         <li class="nav-item">
-          <a href="/auth/signup">Signup</a>
+          <a href="/auth/signup">Registrarse</a>
         </li>
         <li class="nav-item">
           <a href="/auth/login">Login</a>

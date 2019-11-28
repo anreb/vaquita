@@ -1,30 +1,30 @@
 <form action="/promos/new" method="POST" enctype="multipart/form-data" id="form-container">
-  <label for="name">Name</label>
+  <label for="name">Nombre: </label>
   <input id="name" type="text" name="name">
 
   <br><br>
 
-  <label for="storeName">Store</label>
+  <label for="storeName">Tienda: </label>
   <input id="storeName" type="text" name="storeName">
 
   <br><br>
 
-  <label for="description">Description</label>
+  <label for="description">Descripcion: </label>
   <input id="description" type="text" name="description">
 
   <br><br>
 
-  <label for="expiration">Expiration</label>
+  <label for="expiration">Expira: </label>
   <input id="expiration" type="text" name="expiration">
 
    <br><br>
 
-   <label for="price">Price</label>
+   <label for="price">Precio</label>
   <input id="price" type="number" name="price">
 
    <br><br>
 
-   <label for="photo">Promo image</label>
+   <label for="photo">Foto</label>
    <input type="file" name="photo" id="photo" accept="image/*">
   <br>
   {{#if message }}
@@ -33,7 +33,7 @@
 
   <br><br>
 
-  <button>Create promo</button>
+  <button>Crear</button>
 </form>
 
 {{#each promos as |promo|}}
@@ -46,10 +46,10 @@
         <h3>{{promo.price}}</h3>
         <h3>{{promo.author.name}}</h3>
         <form action="/promos/{{promo._id}}/delete" method="POST">
-            <button type="submit">Delete</button>
+            <button type="submit">Eliminar</button>
         </form>
         <form action="/promos/{{promo._id}}/edit" method="GET">
-            <button type="submit">Edit</button>
+            <button type="submit">Editar</button>
         </form>
     </div>
 {{/each}}

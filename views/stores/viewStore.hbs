@@ -1,6 +1,6 @@
 <img src={{promo.store.imgUrl}}>
 <h2>{{promo.store.name}}</h2>
-<h3>Store's promotions</h3>
+<h3>Promos de tienda</h3>
 <br>
 {{#each promos as |promo|}}
         <div>
@@ -12,10 +12,10 @@
             <h3>{{promo.price}}</h3>
             <h3>{{promo.author.name}}</h3>
             <form action="/promos/{{promo._id}}/delete" method="POST">
-                <button type="submit">Delete</button>
+                <button type="submit">Eliminar</button>
             </form>
             <form action="/promos/{{promo._id}}/edit" method="GET">
-                <button type="submit">Edit</button>
+                <button type="submit">Editar</button>
             </form>
         </div>
 {{/each}}

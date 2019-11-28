@@ -1,10 +1,10 @@
 <form action="/stores/new" method="POST" enctype="multipart/form-data" id="form-container">
-  <label for="name">Name</label>
+  <label for="name">Nombre</label>
   <input id="name" type="text" name="name">
 
   <br><br>
 
-   <label for="photo">Store image</label>
+   <label for="photo">Foto: </label>
    <input type="file" name="photo" id="photo" accept="image/*">
   <br>
   {{#if message }}
@@ -13,7 +13,7 @@
 
   <br><br>
 
-  <button>Create store</button>
+  <button>Crear</button>
 </form>
 
 {{#each stores as |store|}}
@@ -21,13 +21,13 @@
         <img src={{store.imgUrl}}>
         <h2>{{store.name}}</h2>
         <form action="/stores/{{store._id}}" method="GET">
-            <button type="submit">Store promotions</button>
+            <button type="submit">Promos de tienda</button>
         </form>
         <form action="/stores/{{store._id}}/delete" method="POST">
-            <button type="submit">Delete</button>
+            <button type="submit">Eliminar</button>
         </form>
         <form action="/stores/{{store._id}}/edit" method="GET">
-            <button type="submit">Edit</button>
+            <button type="submit">Editar</button>
         </form>
     </div>
 {{/each}}
