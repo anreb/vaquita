@@ -1,4 +1,4 @@
-<form action="/promos/new" method="POST" enctype="multipart/form-data" id="form-container">
+{{!-- <form action="/promos/new" method="POST" enctype="multipart/form-data" id="form-container">
   <label for="name">Nombre: </label>
   <input id="name" type="text" name="name">
 
@@ -52,4 +52,94 @@
             <button type="submit">Editar</button>
         </form>
     </div>
-{{/each}}
+{{/each}} --}}
+
+<div id="promotions-container">
+  <div id="add-button">
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><img
+        src="/images/add-icon.png"></button>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Crear promocion</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/promos/new" method="POST" enctype="multipart/form-data" id="form-container">
+​
+            <div class="form-group">
+              <label for="name" class="col-form-label">Nombre:</label>
+              <input id="name" type="text" class="form-control" name="name">
+            </div>
+​
+            <div class="form-group">
+              <label for="storeName" class="col-form-label">Tienda:</label>
+              <input id="storeName" type="text" class="form-control" name="storeName">
+            </div>
+​
+​
+            <div class="form-group">
+              <label for="description" class="col-form-label">Descripcion:</label>
+              <input id="description" type="text" class="form-control" name="description">
+            </div>
+            <div class="form-group">
+              <label for="expiration" class="col-form-label">Vigencia:</label>
+              <input id="expiration" type="text" class="form-control" name="expiration">
+            </div>
+​
+            <div class="form-group">
+              <label for="price" class="col-form-label">Precio:</label>
+              <input id="price" type="number" class="form-control" name="price">
+            </div>
+​
+            <div class="form-group">
+              <label for="photo" class="col-form-label">Imagen:</label>
+              <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
+            </div>
+            {{#if message }}
+            <div class="error-message">{{ message }}</div>
+            {{/if}}
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-info">Crear</button>
+            </div>
+​
+          </form>
+        </div> <!-- div modal body-->
+​
+      </div>
+      <!--div modal content-->
+    </div> <!-- div modal dialog -->
+​
+  </div> <!-- Div modal fade-->
+​
+</div>
+<!--End promotions-container -->
+​
+​
+<div id="promos-container">
+  <h2>Promociones</h2>
+  <div id="promo-listing">
+      <section class="promociones">
+        {{#each promos as |promo|}}
+        <div class="card" style="width: 60%">
+          <img src={{promo.imgUrl}}>
+          <div class="card-body">
+            <p class="card-text">{{promo.name}} <br> {{promo.store.name}}<br>{{promo.price}}<br>{{promo.description}}<br>{{promo.expiration}}<br>{{promo.author.name}}</p><br>
+   ​
+            <form action="/promos/{{promo._id}}/delete" method="POST">
+              <button type="submit">Eliminar</button>
+            </form><br>
+            <form action="/promos/{{promo._id}}/edit" method="GET">
+              <button type="submit">Editar</button>
+            </form><br>
+          </div>
+        </div>
+        {{/each}}
+      </section>
+    </div> 
+</div>

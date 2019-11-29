@@ -1,12 +1,54 @@
-<h2>Calcular vaquita</h2>
-<label for="total">Total:</label>
+{{!-- <h2>Calcular vaquita</h2>
 <input id="total" type="number" name="total">
 <label for="persons">Cantidad de personas:</label>
 <input id="persons" type="number" name="total">
-<a href="#" id="addPersons" onclick="addUsers()">Agregar personas</a>
+<a href="#" id="addPersons" onclick="addUsers()">Agregar personas</a> --}}
 
-<div id="users">
-</div>
+<div class="bottom-div">
+            <div class="vaquita-container">
+                <div class="vaquita-title">
+                    <p>Vaquita</p>
+                </div>
+                <div class="vaquita-controllers">
+                    <div class="vaquita-btn-container">
+                            <div class="vaquita-btn-container-minus">
+                                    <button><span>-</span></button>
+                            </div>
+                            <div class="vaquita-input">
+                                <input type="number" id="total"></input>
+                            </div>
+                            <div class="vaquita-btn-container-plus">
+                                <button><span>+</span></button>
+                            </div>
+                      
+                    </div>
+                    <div class="vaquita-btn-container">
+                        <div class="vaquita-btn-container-minus">
+                            <button><span>-</span></button>
+                        </div>
+                        <div class="vaquita-input">
+                            <input type="number" id="users" onchange="addUsers()"></input>
+                        </div>
+                        <div class="vaquita-btn-container-plus"> 
+                                <button><span>+</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="card-item" id="persons">
+                        {{!-- <div class="card-input-container">
+                            <input placeholder="Persona..." type="text" class="inputQuantity person">
+                        </div>    --}}
+                    </div>
+                    <div class="card-item" id="cooperacha">
+                        {{!-- <div class="card-input-container">
+                            <input placeholder="Coperacha..." type="text" class="inputQuantity person">
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
     let ids = [];
@@ -14,24 +56,36 @@
     let total;
     function addUsers() {
         ids = [];
-        let users = document.getElementById('persons').value;
-        let container = document.getElementById('users');
+        let users = document.getElementById('users').value;
+        let personContainer = document.getElementById('persons');
+        let cooperachaContainer = document.getElementById('cooperacha');
         total = document.getElementById('total').value;
         changedIds = [];
-        container.innerHTML = '';
+        personContainer.innerHTML = '';
+        cooperachaContainer.innerHTML = '';
         for (let i=0; i< users; i++){
             const input = 
             `<input id="vaquitaNombre${i+1}" type="text" name="vaquitaNombre" value="Vaquita ${i+1}">
             <input id="vaquitaTotal${i+1}" type="number" name="vaquitaTotal" value="${total/users}" onchange="calculateOnChange(this.id)"><br>`;
-            container.insertAdjacentHTML('beforeend', input);
+
+            const person = `<div class="card-input-container">
+                            <input placeholder="Persona..." type="text" class="inputQuantity person" value="Vaquita ${i+1}">
+                        </div>`;
+
+            const cooperacha = `<div class="card-input-container">
+                            <input placeholder="Coperacha..." type="text" class="inputQuantity person" id="vaquitaTotal${i+1}" onchange="calculateOnChange(this.id)" value="${total/users}">
+                        </div>`;
+            personContainer.insertAdjacentHTML('beforeend', person);
+            cooperachaContainer.insertAdjacentHTML('beforeend',cooperacha);
             ids.push(`vaquitaTotal${i+1}`);
         }
     }
     
     function calculateOnChange(id) {
         if(ids.length >= changedIds.length+1) {
-            let users = document.getElementById('persons').value;
-            let container = document.getElementById('users');
+            let users = document.getElementById('users').value;
+            {{!-- let container = document.getElementById('users'); --}}
+            console.log(id);
             let changedValue = document.getElementById(id).value;
             console.log(changedValue);
             console.log(typeof id);
@@ -41,17 +95,15 @@
                 total-=changedValue;
                 ids.forEach(el => {
                     if(!changedIds.includes(el)) {
-                        document.getElementById(el).value = total / (ids.length - changedIds.length);
+                        document.getElementById(el).value = Math.floor(total / (ids.length - changedIds.length));
                     }
                 })
             } else {
-                console.log('reseting')
                 changedIds = [];
                 total = document.getElementById('total').value;
                 calculateOnChange(id);
             }
-        } else {
-            console.log('reseting')
+        } else {s
             changedIds = [];
             total = document.getElementById('total').value;
             calculateOnChange(id);

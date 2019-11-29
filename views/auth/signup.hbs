@@ -1,4 +1,4 @@
-<h2>Signup</h2>
+{{!-- <h2>Signup</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="name">Nombre: </label>
@@ -26,4 +26,43 @@
   <br><br>
 
   <button>Registrarse</button>
-</form>
+</form> --}}
+
+<div id="h-container">
+  <h2>Signup</h2>
+​
+</div>
+<div id="forms-container">
+​
+  <form action="/auth/signup" method="POST" style="width: 50%" id="form-container">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input id="name" class="form-control" type="text" name="name" placeholder="Palomino">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Apellido</label>
+      <input id="lastName" class="form-control" type="text" name="lastName" placeholder="Perez">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" class="form-control" aria-describedby="emailHelp" type="text" name="email"
+        placeholder="palomino_perez@gmail.com">
+      {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+    </div>
+​
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input id="password" class="form-control" type="password" name="password" placeholder="Your password">
+    </div>
+​
+    {{#if message }}
+    <div class="error-message" style="color: red">{{ message }}</div>
+    {{/if}}
+​
+    <button class="btn btn-info">Registrarse</button>
+​
+    {{!-- <small class="form-text text-muted">Do you already have an account? <a id="forms-links"
+        href="/auth/login">Login</a></small> --}}
+​
+  </form>
+</div>

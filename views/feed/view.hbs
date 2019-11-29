@@ -1,4 +1,4 @@
-<h2>Promos</h2>
+{{!-- <h2>Promos</h2>
 
 {{#each promos as |promo|}}
 <div>
@@ -10,4 +10,33 @@
     <h3>{{promo.expiration}}</h3>
     <h3>{{promo.author.name}}</h3>
 </div>
-{{/each}}
+{{/each}} --}}
+
+<div id="promos-container">
+    ​  <h2>Promociones</h2>
+    <div id="promo-listing">
+         
+         <section class="promociones">
+         {{#each promos as |promo|}}
+    
+             <div class="card" >
+                <img src={{promo.imgUrl}}>
+                <div class="card-body">
+                <p class="card-text">{{promo.name}} <br> {{promo.store.name}}<br>{{promo.price}}<br>
+                 {{promo.description}}<br>{{promo.expiration}}<br>{{promo.author.name}}</p>
+                <!--<p class="card-text">{{promo.store.name}}</p>
+                <p class="card-text">{{promo.price}}</p>
+                <p class="card-text">{{promo.description}}</p>
+                <p class="card-text">{{promo.expiration}}</p>
+                <p class="card-text">{{promo.author.name}}</p>-->
+​
+                </div>
+            </div>
+            {{/each}}
+        </section>
+    
+    </div>
+
+</div>
+
+

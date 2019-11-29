@@ -1,10 +1,346 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
-a {
-  color: #00b7ff; }
+body {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(#21c08b, #ab88ff);
+  width: 100vw;
+  height: 100vh; }
+
+::-webkit-scrollbar {
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.2);
+  width: 5px; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.2);
+  width: 5px; }
+
+::-webkit-scrollbar-track {
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.2);
+  width: 5px; }
+
+a li {
+  color: #ffffff; }
 
 li {
   margin: 0 .5em; }
+
+nav {
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px; }
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative; }
+
+.bottom-div {
+  height: calc(100vh - 100px);
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+
+.vaquita-container {
+  height: 90%;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); }
+
+.vaquita-title {
+  font-size: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 20px; }
+
+.vaquita-controllers {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; }
+
+.vaquita-btn-container {
+  width: 350px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  margin-right: 20px; }
+
+.vaquita-btn-container-plus,
+.vaquita-input,
+.vaquita-btn-container-minus {
+  height: 100%;
+  width: 100%; }
+
+.vaquita-btn-container-plus button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 24px;
+  color: white; }
+
+.vaquita-btn-container-minus button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 24px;
+  color: white; }
+
+.vaquita-input {
+  width: 100%;
+  height: 100%; }
+
+.vaquita-input input {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: none;
+  color: white;
+  font-size: 24px;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; }
+
+.cards-container {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  height: 280px;
+  overflow-y: scroll; }
+
+.card-input-container {
+  width: 100%; }
+
+.inputQuantity {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: 1px solid white;
+  color: white;
+  font-size: 24px;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 5px; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+.inputQuantity::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Montserrat', sans-serif; }
+
+.card-item:not(:last-child) {
+  margin-right: 20px; }
+
+/*Estillos Clau*/
+#nav-container {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  background-color: #0204a8; }
+
+​ #logo {
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 150px;
+  height: 70px; }
+
+​ #icon {
+  display: none; }
+
+​ ul {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  padding: 20px 0px; }
+
+​ h2 {
+  color: #07c8c1;
+  text-align: center;
+  font-size: 2rem; }
+
+​ #links-layout:hover {
+  color: #07c8c1; }
+
+​ #forms-links {
+  color: #0204a8; }
+
+​ footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #0204a8;
+  font-size: 1.01rem;
+  color: white; }
+
+​ #footer-container {
+  width: 100%;
+  height: 100%; }
+
+​ ​ #h-container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 120px; }
+
+​ ​ #forms-container {
+  position: relative;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 80px; }
+
+​ .card {
+  display: inline;
+  padding-bottom: 30px; }
+
+​ #promos-container {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+
+​ #form-create {
+  position: relative;
+  top: 200px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0px;
+  padding-bottom: 0px; }
+
+​ #listing {
+  position: relative;
+  top: 120px; }
+
+​ ​ #form-create-store {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px; }
+
+​ #stores-box {
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap; }
+
+​ #stores-container {
+  position: relative;
+  margin-top: 0px;
+  padding: 0px;
+  align-content: center;
+  text-align: center; }
+
+​ #stores-list {
+  position: relative; }
+
+​ .modal-footer {
+  display: flex;
+  justify-content: center; }
+
+​ h5,
+h3 {
+  color: #07c8c1; }
+
+​ #add-button {
+  position: fixed;
+  right: 15px;
+  bottom: 65px;
+  z-index: 20; }
+
+​ #add-button img {
+  width: 50px;
+  height: 50px; }
+
+​ .btn-info {
+  background-color: #07c8c1; }
+
+#promo-listing {
+  display: flex;
+  justify-content: center; }
+
+.card-body {
+  display: flex;
+  justify-content: space-evenly; }
+
+.promociones {
+  width: 50%;
+  text-align: center;
+  justify-content: center; }
+
+/*
+​ {
+	@media (min-width: 678px) {
+		.collapsed-menu {
+			display: none;
+		}
+		​ .card img {
+			width: 500px;
+			height: 500px;
+		}
+		​ #promo-listing {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		​ #listing img {
+			width: 500px;
+			height: 500px;
+		}
+	}
+}
+*/
 
 /*# sourceMappingURL=style.css.map */

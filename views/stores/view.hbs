@@ -1,4 +1,4 @@
-<form action="/stores/new" method="POST" enctype="multipart/form-data" id="form-container">
+{{!-- <form action="/stores/new" method="POST" enctype="multipart/form-data" id="form-container">
   <label for="name">Nombre</label>
   <input id="name" type="text" name="name">
 
@@ -30,4 +30,77 @@
             <button type="submit">Editar</button>
         </form>
     </div>
-{{/each}}
+{{/each}} --}}
+
+<div id="stores-container">
+​
+    <div id="add-button">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><img
+                src="/images/add-icon.png"></button>
+    </div>
+​
+​
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Create a store</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/stores/new" method="POST" enctype="multipart/form-data" id="form-container">
+​
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input id="name" type="text" class="form-control" id="recipient-name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="photo" class="col-form-label">Image:</label>
+                            <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
+                        </div>
+                        {{#if message }}
+                        <div class="error-message">{{ message }}</div>
+                        {{/if}}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-info">Create</button>
+                        </div>
+​
+                    </form>
+                </div>
+                <!--div modal-body -->
+​
+            </div><!-- div modal-content-->
+        </div>
+        <!--div modal dialog-->
+    </div>
+    <!--div modal fade-->
+​
+    <div id="listing" id="stores-list">
+        <h2>Stores</h2>
+        {{#each stores as |store|}}
+        <div id="stores-box card">
+            <img src={{store.imgUrl}}>
+            <div class="card-body">
+                <h3>{{store.name}}</h3>
+                <form action="/stores/{{store._id}}" method="GET">
+                    <button type="submit" class="btn btn-info">Store promotions</button>
+                </form><br>
+​
+                <form action="/stores/{{store._id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-info">Delete</button>
+                </form><br>
+                <form action="/stores/{{store._id}}/edit" method="GET">
+                    <button type="submit" class="btn btn-info">Edit</button>
+                </form>
+​
+​
+            </div>
+        </div>
+        {{/each}}
+    </div> <!-- div stores list-->
+​
+</div>
+<!--div stores container-->
